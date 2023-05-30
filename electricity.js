@@ -1,4 +1,6 @@
 function Electricity() {
+var unitsAvailable = 0;
+
 
     // do we want to go with this or array? 
     let appliances = {
@@ -8,12 +10,26 @@ function Electricity() {
         'Fridge': 13
     };
 
+    let advance = false;
+
     function topUpElectricity(amount) {
-
-
+        if(amount == 10){
+             unitsAvailable +=7
+        }
+         if(amount == 20){
+             unitsAvailable +=14
+        }
+         if(amount == 50){
+             unitsAvailable +=35
+        }   
+         if(amount == "advance" && advance == false){
+            unitsAvailable +=21
+            advance = true
+       }
+        
     }
 
-    function getUnitsAvailable() {
+    function getUnitsAvailable() {   
          return unitsAvailable;
     }
 
@@ -22,16 +38,31 @@ function Electricity() {
     * other wise return false and do nothing.
     */
     function useAppliance(appliance) {
+        if(unitsAvailable < 7 && appliance == "Stove"){
+            return false
+
+        }
+
+    
         
     }
 
     function advanceTaken() {
+        if(advance == true){
+            return advance
+        }else{
+            return false
+        }
+       
+     
     }
 
     function totalAmountSpent() {
+      
     }
 
     function totalUnitsBought(){
+
     }
 
     return {
